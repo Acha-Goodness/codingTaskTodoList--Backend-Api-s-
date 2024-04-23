@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 
 const todoSchema = new mongoose.Schema({
-    todoTitle:{
+    description:{
         type:String,
         required: [true, "Please enter the title of your todo"]
     },
