@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const compression = require("compression");
 const todoRouter = require("./Routes/todoRoutes")
 
 const app = express();
@@ -15,6 +16,8 @@ if(process.env.NODE_ENV === "development"){
     app.use(morgan("dev"));
     console.log("My application is currently on", process.env.NODE_ENV);
 }
+
+app.use(compression());
 
 // ENDPOINT ROUTING BY MOUNTING e.g mounting the router
 app.use("/api/v1/todo", todoRouter);
